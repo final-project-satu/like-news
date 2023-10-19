@@ -1,1 +1,18 @@
-
+.bg-headers{
+    min-height: 100vh;
+    background-color: black;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.text-headers{
+    color: white;
+}
+.btn-headers{
+    width: fit-content;
+    text-align: center;
+}
+.nav{
+   
+}
