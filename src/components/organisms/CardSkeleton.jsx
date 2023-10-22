@@ -2,7 +2,7 @@ import React from 'react';
 
 const CardSkeleton = () => {
   return (
-    <div className="border-[1px] border-slate-600 p-5 animate-pulse">
+    <div className="border-[1px] border-slate-600 p-3 animate-pulse">
       <div className="py-2 border-b border-gray-300 mb-4  ">
         <div className="w-full h-32 bg-slate-200"></div>
 
