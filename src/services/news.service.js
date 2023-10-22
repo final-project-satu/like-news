@@ -28,9 +28,8 @@ export const getNews = async (query) => {
 };
 
 export const getNewsSearch = async (keyword) => {
-  const newsData = await fetch(
-    `https://newsapi.org/v2/everything?apiKey=${API_KEY}&q=${keyword}&pageSize=10`,
-    { cache: 'no-store' }
-  );
+  const newsData = await fetch(`https://newsapi.org/v2/everything?apiKey=${API_KEY}&q=${keyword}`, {
+    cache: 'no-store',
+  });
   return removeDuplicateData(await newsData.json());
 };
