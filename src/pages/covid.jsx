@@ -4,7 +4,7 @@ import Card from '../components/organisms/Card';
 import CardSkeleton from '../components/organisms/CardSkeleton';
 
 const 
-IndonesiaPage = () => {
+covidPage = () => {
   const [newsID, setNewsID] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
@@ -12,7 +12,7 @@ IndonesiaPage = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getNewsIndonesia('indonesia');
+        const data = await getNewsIndonesia('covid-19');
         setNewsID(data);
         setIsLoading(false);
       } catch (error) {
@@ -30,7 +30,7 @@ IndonesiaPage = () => {
 
   return (
     <div id='beranda'>
-      <h2 className="text-2xl font-bold text-center my-5">Indonesia</h2>
+      <h2 className="text-2xl font-bold text-center my-5">Covid-19</h2>
       <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2">
         {isLoading ? (
           <>
@@ -52,4 +52,4 @@ IndonesiaPage = () => {
   );
 };
 
-export default IndonesiaPage;
+export default covidPage;

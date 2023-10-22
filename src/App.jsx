@@ -5,6 +5,7 @@ import ErrorPage from './pages/404';
 import Navbars from './components/organisms/Navbar';
 import Headers from './components/organisms/Headers';
 import ProgrammingPage from './pages/programming';
+import CovidPage from './pages/covid';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<IndonesiaPage />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/programming" element={<ProgrammingPage />} />
+          <Route path="/covid" element={<CovidPage />} />
         </Routes>
       </main>
     </>
