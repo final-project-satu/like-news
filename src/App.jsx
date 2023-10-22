@@ -10,7 +10,7 @@ function App() {
     <>
       <Headers/>
       <Navbars/> 
-      <main className="px-2 md:px-20 mb-10">
+      <main className="px-20 md:px-20 mb-10">
         <Routes>
           <Route path="/" element={<IndonesiaPage />} />
           <Route path="*" element={<ErrorPage />} />

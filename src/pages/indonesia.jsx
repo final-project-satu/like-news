@@ -28,9 +28,8 @@ const IndonesiaPage = () => {
   }
 
   return (
-    <div>
+    <div id='beranda'>
       <h2 className="text-2xl font-bold text-center my-5">Indonesia</h2>
-
       <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2">
         {isLoading ? (
           <>
