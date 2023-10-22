@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import LOGO from '../../assets/img/logo-black.png';
+import { Link } from 'react-router-dom';
 
 function Navbars() {
   return (
@@ -14,15 +15,11 @@ function Navbars() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0 text-lg "
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">Indonesia</Nav.Link>
-            <Nav.Link href="#action2">Programming</Nav.Link>
-            <Nav.Link href="#action3">Covid-19</Nav.Link>
-            <Nav.Link href="#action3">Saved</Nav.Link>
+          <Nav className="me-auto my-2 my-lg-0 text-lg "navbarScroll>
+            <Nav.Link><Link to='/'>Indonesia</Link></Nav.Link>
+            <Nav.Link><Link to='/programming'>Programming</Link></Nav.Link>
+            <Nav.Link><Link to='/covid'>Covid-19</Link></Nav.Link>
+            <Nav.Link><Link to='/saved'>Saved</Link></Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />

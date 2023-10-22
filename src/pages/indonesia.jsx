@@ -3,7 +3,8 @@ import { getNewsIndonesia } from '../services/news.service';
 import Card from '../components/organisms/Card';
 import CardSkeleton from '../components/organisms/CardSkeleton';
 
-const IndonesiaPage = () => {
+const 
+IndonesiaPage = () => {
   const [newsID, setNewsID] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
