@@ -41,7 +41,7 @@ const IndonesiaPage = () => {
         ) : (
           <>
             {newsID.map((article, idx) => (
-              <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-5">
+              <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
                 <Card data={article} />
               </div>
             ))}

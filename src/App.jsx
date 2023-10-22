@@ -8,9 +8,9 @@ import Headers from './components/organisms/Headers';
 function App() {
   return (
     <>
-      <Headers/>
-      <Navbars/> 
-      <main className="px-2 md:px-20 mb-10">
+      <Headers />
+      <Navbars />
+      <main className="px-5 md:px-20 mb-10">
         <Routes>
           <Route path="/" element={<IndonesiaPage />} />
           <Route path="*" element={<ErrorPage />} />
