@@ -30,8 +30,8 @@ const Card = ({ data }) => {
     setIsSaved(!isSaved);
   };
   return (
-    <div className="py-2 border-b border-gray-300 mb-4">
-      <div className="relative w-full">
+    <div className="pb-2 border-b border-gray-300 mb-4">
+      <div className="w-full">
         <img src={data?.urlToImage || IMG} alt={data?.title} className="object-cover w-full" />
       </div>
 
