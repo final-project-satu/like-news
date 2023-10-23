@@ -31,7 +31,6 @@ const AllNews = () => {
   return (
     <div id='beranda'>
       <h2 className="text-2xl font-bold text-center my-5">All News</h2>
-
       <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2">
         {isLoading ? (
           <>
@@ -41,11 +40,12 @@ const AllNews = () => {
           </>
         ) : (
           <>
-            {News.map((article, idx) => (
-              <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
-                <Card data={article} />
-              </div>
-            ))}
+          {News.map((article, idx) => (
+            <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
+              <Card data={article} />
+            </div>
+          ))}
+          
           </>
         )}
       </div>

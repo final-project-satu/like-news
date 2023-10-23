@@ -9,15 +9,17 @@ import CovidPage from './pages/covid';
 import SavedPage from './pages/saved';
 import SearchPage from './pages/search';
 import AllNews from './pages/allnews';
+import Home from './pages/home';
 
 function App() {
   return (
     <>
       <Headers />
       <Navbars />
-      <main className="px-20 md:px-20 mb-10">
+      <main className="px-20 md:px-20 mb-10 ">
         <Routes>
-          <Route path="/" element={<AllNews />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/all" element={<AllNews />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/indonesia" element={<IndonesiaPage />} />
           <Route path="/programming" element={<ProgrammingPage />} />

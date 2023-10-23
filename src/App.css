@@ -25,3 +25,23 @@
     background-color: white;
     border-bottom: 2px solid #000;
 }
+.bg-indo{
+    background-image: url('./assets/img/indonesia.avif');
+    background-size: cover;
+}
+.bg-covid{
+    background-image: url('./assets/img/covid.jpg');
+    background-size: cover;
+}
+.bg-programming{
+    background-image: url('./assets/img/programming.avif');
+    background-size: cover;
+}
+.bg-spotlight{
+    background-image: url('./assets/img/gaza.webp');
+    background-size: cover;
+    color: white;
+}
+.bg-title-spotlight{
+    background-color: rgba(99, 99, 99, 0.685);
+}

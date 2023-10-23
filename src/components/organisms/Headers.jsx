@@ -53,7 +53,7 @@ export default function Headers() {
                   <img src={pict} />
                 </div>
                 <div className='text-5xl text-center mt-2 font-bold'>HOT NEWS</div>
-                {newsID.slice(0, 3).map((article, idx) => (
+                {newsID.slice(4, 7).map((article, idx) => (
                   <Card key={`${article?.title}-${idx}`} className="h-fit mt-2 bg-white">
                     <Card.Body>
                       <Row>
