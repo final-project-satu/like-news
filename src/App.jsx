@@ -10,11 +10,14 @@ import SavedPage from './pages/saved';
 import SearchPage from './pages/search';
 import AllNews from './pages/allnews';
 import Home from './pages/home';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   return (
     <>
-      <Headers />
+      {isHomePage && <Headers />}
       <Navbars />
       <main className="px-20 md:px-20 mb-10 ">
         <Routes>
