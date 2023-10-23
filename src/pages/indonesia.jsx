@@ -2,6 +2,7 @@ import React from 'react';
 import { getNewsIndonesia } from '../services/news.service';
 import Card from '../components/organisms/Card';
 import CardSkeleton from '../components/organisms/CardSkeleton';
+import ErrorPage from './404';
 
 const 
 IndonesiaPage = () => {
@@ -12,7 +13,7 @@ IndonesiaPage = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getNewsIndonesia('indonesia');
+        const data = await getNewsIndonesia();
         setNewsID(data);
         setIsLoading(false);
       } catch (error) {
@@ -25,7 +26,7 @@ IndonesiaPage = () => {
   }, []);
 
   if (isError) {
-    return <div>Gagal Menampilkan data...</div>;
+    return <ErrorPage/>;
   }
 
   return (

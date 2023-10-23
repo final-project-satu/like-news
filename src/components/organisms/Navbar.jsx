@@ -25,21 +25,23 @@ function Navbars() {
     <Navbar expand="lg" sticky="top" variant="light" className="nav">
       <Container fluid>
         <Navbar.Brand href="#">
-          <img src={LOGO} alt="logo like news" className="w-48 h-10 object-cover " />
+          <Link to='/'>
+            <img src={LOGO} alt="logo like news" className="w-48 h-10 object-cover " />
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0 text-lg " navbarScroll>
-            <Nav.Link>
+            <Nav.Link href='#indonesia'>
               <Link to="/indonesia">Indonesia</Link>
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link href='#programming'>
               <Link to="/programming">Programming</Link>
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link href='#covid'>
               <Link to="/covid">Covid-19</Link>
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link href='#saved'>
               <Link to="/saved">Saved</Link>
             </Nav.Link>
           </Nav>
@@ -51,7 +53,7 @@ function Navbars() {
               aria-label="Search"
               onChange={(e) => setKeywords(e.target.value)}
             />
-            <Button variant="outline-success" type="submit">
+            <Button variant="outline-dark" type="submit">
               Search
             </Button>
           </Form>

@@ -1,6 +1,6 @@
 import { Button, Row, Col, Container, Card } from 'react-bootstrap';
 import pict from '../../assets/img/logo.png';
-import { getNewsIndonesia } from '../../services/news.service';
+import { getNews } from '../../services/news.service';
 import { useEffect, useState } from 'react';
 import IMG from '../../assets/img/header-card.png';
 import LazyLoad from 'react-lazy-load';
@@ -13,7 +13,7 @@ export default function Headers() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getNewsIndonesia();
+        const data = await getNews();
         setNewsID(data);
         setIsLoading(false);
       } catch (error) {
@@ -25,14 +25,13 @@ export default function Headers() {
     fetchData();
   }, []);
   return (
-    <div className="bg-headers">
-      <Container>
-        <div>
-          <div>
-            <Row style={{ minHeight: '100vh' }}>
-              <Col className="col-header">
+    <div className="bg-headers bg-fixed">
+      <div>
+      <Container fluid className='px-10 py-2'>
+            <Row className='min-h-screen'>
+              <Col className="flex justify-center items-center">
                 <div>
-                  <div className="text-5xl text-left">
+                  <div className="text-5xl text-left font-semibold">
                     Dapatkan Informasi Terbaru Untuk Hari-Harimu
                   </div>
                   <Link
@@ -53,18 +52,14 @@ export default function Headers() {
                 <div className="flex justify-center items-center">
                   <img src={pict} />
                 </div>
-                {newsID.slice(0, 2).map((article, idx) => (
-                  <Card key={`${article?.title}-${idx}`} className="h-48 mt-3">
+                <div className='text-5xl text-center mt-2 font-bold'>HOT NEWS</div>
+                {newsID.slice(0, 3).map((article, idx) => (
+                  <Card key={`${article?.title}-${idx}`} className="h-fit mt-2 bg-white">
                     <Card.Body>
                       <Row>
-                        <Col className="flex justify-center items-center">
-                          <LazyLoad>
-                            <Card.Img src={article.urlToImage || IMG} alt={article.title} />
-                          </LazyLoad>
-                        </Col>
                         <Col>
                           <Card.Title className="text-sm">{article.title}</Card.Title>
-                          <a href={article.url}>
+                          <a href={article.url} target="_blank" className='flex justify-end'>
                             <Button variant="dark" style={{ color: 'black' }}>
                               Go
                             </Button>
@@ -76,9 +71,8 @@ export default function Headers() {
                 ))}
               </Col>
             </Row>
-          </div>
-        </div>
       </Container>
+      </div>  
     </div>
   );
 }

@@ -8,6 +8,7 @@ import ProgrammingPage from './pages/programming';
 import CovidPage from './pages/covid';
 import SavedPage from './pages/saved';
 import SearchPage from './pages/search';
+import AllNews from './pages/allnews';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Navbars />
       <main className="px-20 md:px-20 mb-10">
         <Routes>
-          <Route path="/" element={<IndonesiaPage />} />
+          <Route path="/" element={<AllNews />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/indonesia" element={<IndonesiaPage />} />
           <Route path="/programming" element={<ProgrammingPage />} />
