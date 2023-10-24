@@ -1,6 +1,12 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Pastikan Anda mengimpor FontAwesomeIcon
-import { faFacebook, faTwitter, faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons"; // Anda dapat menambahkan ikon media sosial yang Anda butuhkan
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Pastikan Anda mengimpor FontAwesomeIcon
+import {
+  faFacebook,
+  faTwitter,
+  faGithub,
+  faLinkedin,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons'; // Anda dapat menambahkan ikon media sosial yang Anda butuhkan
 
 const SocialIcons = ({ Icons }) => {
   return (
@@ -21,15 +27,15 @@ const SocialIcons = ({ Icons }) => {
 
 function renderIcon(iconName) {
   switch (iconName) {
-    case "logo-facebook":
+    case 'logo-facebook':
       return <FontAwesomeIcon icon={faFacebook} />;
-    case "logo-twitter":
+    case 'logo-twitter':
       return <FontAwesomeIcon icon={faTwitter} />;
-    case "logo-github":
+    case 'logo-github':
       return <FontAwesomeIcon icon={faGithub} />;
-    case "logo-linkedin":
+    case 'logo-linkedin':
       return <FontAwesomeIcon icon={faLinkedin} />;
-    case "logo-instagram":
+    case 'logo-instagram':
       return <FontAwesomeIcon icon={faInstagram} />;
     default:
       return null;
