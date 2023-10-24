@@ -21,15 +21,15 @@ const SocialIcons = ({ Icons }) => {
 
 function renderIcon(iconName) {
   switch (iconName) {
-    case "logo-facebook":
+    case "FACEBOOK":
       return <FontAwesomeIcon icon={faFacebook} />;
-    case "logo-twitter":
+    case "TWITTER":
       return <FontAwesomeIcon icon={faTwitter} />;
-    case "logo-github":
+    case "GITHUB":
       return <FontAwesomeIcon icon={faGithub} />;
-    case "logo-linkedin":
+    case "LINKEDIN":
       return <FontAwesomeIcon icon={faLinkedin} />;
-    case "logo-instagram":
+    case "INSTAGRAM":
       return <FontAwesomeIcon icon={faInstagram} />;
     default:
       return null;

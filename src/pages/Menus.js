@@ -1,32 +1,32 @@
-export const PRODUCTS = [
+export const ABOUT_US = [
   { name: "About Like News", link: "#" },
   { name: "Privacy Policy", link: "#" },
   { name: "Term of Use", link: "#" },
   { name: "Like News Team", link: "#" },
 ];
-export const RESOURCES = [
-  { name: "Indonesia", link: "#" },
-  { name: "Programming", link: "#" },
-  { name: "COVID-19", link: "#" },
+export const CATEGORY = [
+  { name: "Indonesia", link: "/indonesia" },
+  { name: "Programming", link: "/programming" },
+  { name: "COVID-19", link: "/covid" },
   
 ];
-export const COMPANY = [
+export const JOIN_US = [
   { name: "New Team", link: "#" },
   { name: "Join On The Like News", link: "#" },
  
 ];
 export const Icons = [
-  { name: "logo-facebook", link: "#" },
-  { name: "logo-twitter", link: "#" },
-  { name: "logo-github", link: "#" },
-  { name: "logo-linkedin", link: "#" },
-  { name: "logo-instagram", link: "#" },
+  { name: "FACEBOOK", link: "#" },
+  { name: "TWITTER", link: "#" },
+  { name: "GITHUB", link: "#" },
+  { name: "LINKEDIN", link: "#" },
+  { name: "INSTAGRAM", link: "#" },
 ];
 
 // export const Icons = [
-//   { name: "logo-facebook", link: "#" },
-//   { name: "logo-twitter", link: "#" },
-//   { name: "logo-github", link: "#" },
-//   { name: "logo-linkedin", link: "#" },
-//   { name: "logo-instagram", link: "#" },
+//   { name: "FACEBOOK", link: "#" },
+//   { name: "TWITTER", link: "#" },
+//   { name: "GITHUB", link: "#" },
+//   { name: "LINKEDIN", link: "#" },
+//   { name: "INSTAGRAM", link: "#" },
 // ];
