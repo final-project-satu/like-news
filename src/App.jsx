@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import IndonesiaPage from './pages/indonesia';
 import ErrorPage from './pages/404';
+import Footer from './pages/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>
+      <Footer/>
     </>
   );
 }
