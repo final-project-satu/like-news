@@ -1,20 +1,20 @@
 import React from 'react';
-import { getNewsIndonesia } from '../services/news.service';
+import { useParams } from 'react-router-dom';
 import Card from '../components/organisms/Card';
+import { getNewsSearch } from '../services/news.service';
 import CardSkeleton from '../components/organisms/CardSkeleton';
-import ErrorPage from './404';
 
-const 
-IndonesiaPage = () => {
-  const [newsID, setNewsID] = React.useState([]);
+const SearchPage = () => {
+  const [newsSearch, setNewsSearch] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
+  const { keyword } = useParams();
 
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getNewsIndonesia();
-        setNewsID(data);
+        const data = await getNewsSearch(keyword);
+        setNewsSearch(data);
         setIsLoading(false);
       } catch (error) {
         setIsError(true);
@@ -23,16 +23,17 @@ IndonesiaPage = () => {
     };
 
     fetchData();
-  }, []);
+  }, [keyword]);
 
   if (isError) {
-    return <ErrorPage/>;
+    return <div>Gagal Menampilkan data...</div>;
   }
 
   return (
-    <div id='beranda'>
-      <h2 className="text-2xl font-bold text-center my-5">Indonesia</h2>
-      <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2">
+    <div>
+      <h2 className="text-2xl font-bold text-center my-5">{keyword}</h2>
+
+      <div className="w-full grid gap-5 lg:grid-cols-3">
         {isLoading ? (
           <>
             <CardSkeleton />
@@ -41,7 +42,7 @@ IndonesiaPage = () => {
           </>
         ) : (
           <>
-            {newsID.map((article, idx) => (
+            {newsSearch.map((article, idx) => (
               <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
                 <Card data={article} />
               </div>
@@ -53,4 +54,4 @@ IndonesiaPage = () => {
   );
 };
 
-export default IndonesiaPage;
+export default SearchPage;

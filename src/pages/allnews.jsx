@@ -1,20 +1,19 @@
 import React from 'react';
-import { getNewsIndonesia } from '../services/news.service';
-import Card from '../components/organisms/Card';
+import { getNews } from '../services/news.service';
 import CardSkeleton from '../components/organisms/CardSkeleton';
+import Card from '../components/organisms/Card';
 import ErrorPage from './404';
 
-const 
-IndonesiaPage = () => {
-  const [newsID, setNewsID] = React.useState([]);
+const AllNews = () => {
+  const [News, setNews] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
 
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getNewsIndonesia();
-        setNewsID(data);
+        const data = await getNews('programming'&&'covid');
+        setNews(data);
         setIsLoading(false);
       } catch (error) {
         setIsError(true);
@@ -31,7 +30,7 @@ IndonesiaPage = () => {
 
   return (
     <div id='beranda'>
-      <h2 className="text-2xl font-bold text-center my-5">Indonesia</h2>
+      <h2 className="text-2xl font-bold text-center my-5">All News</h2>
       <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2">
         {isLoading ? (
           <>
@@ -41,11 +40,12 @@ IndonesiaPage = () => {
           </>
         ) : (
           <>
-            {newsID.map((article, idx) => (
-              <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
-                <Card data={article} />
-              </div>
-            ))}
+          {News.map((article, idx) => (
+            <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
+              <Card data={article} />
+            </div>
+          ))}
+          
           </>
         )}
       </div>
@@ -53,4 +53,4 @@ IndonesiaPage = () => {
   );
 };
 
-export default IndonesiaPage;
+export default AllNews;

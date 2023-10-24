@@ -1,1 +1,47 @@
-
+.bg-headers{
+    background-image: url('./assets/img/bg.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    color: #000000;
+}
+.bg-headers div{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.text-headers{
+    color: black;
+    font-size: 50px;
+    text-align: justify;
+}
+.btn-headers{
+    width: fit-content;
+    text-align: center;
+}
+.col-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav{
+    background-color: white;
+    border-bottom: 2px solid #000;
+}
+.bg-indo{
+    background-image: url('./assets/img/indonesia.avif');
+    background-size: cover;
+}
+.bg-covid{
+    background-image: url('./assets/img/covid.jpg');
+    background-size: cover;
+}
+.bg-programming{
+    background-image: url('./assets/img/programming.avif');
+    background-size: cover;
+}
+.bg-spotlight{
+    background-image: url('./assets/img/gaza.webp');
+    background-size: cover;
+    color: white;
+}
+.bg-title-spotlight{
+    background-color: rgba(99, 99, 99, 0.685);
+}

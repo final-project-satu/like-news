@@ -27,13 +27,11 @@ const Card = ({ data }) => {
       localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
       setIsUpdate(!isUpdate);
     }
-
     setIsSaved(!isSaved);
   };
-
   return (
-    <div className="py-2 border-b border-gray-300 mb-4">
-      <div className="relative w-full">
+    <div className="pb-2 border-b border-gray-300 mb-4 h-full flex flex-col">
+      <div className="w-full">
         <img src={data?.urlToImage || IMG} alt={data?.title} className="object-cover w-full" />
       </div>
 
@@ -54,7 +52,9 @@ const Card = ({ data }) => {
 
       <p className="text-sm">{data?.description}</p>
 
-      <Button isSaved={isSaved} toggleSaved={handleToggleSaved} />
+      <div className='mt-auto'>
+        <Button isSaved={isSaved} toggleSaved={handleToggleSaved} />
+      </div>
     </div>
   );
 };
