@@ -5,7 +5,7 @@ const API_KEY_BACKUP ='271e7a0971194c9cb5ed330cc3d92bc2';
 
 export const getNewsIndonesia = async () => {
   const newsData = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=id&apiKey=${API_KEY_BACKUP}`,
+    `https://newsapi.org/v2/top-headlines?country=id&apiKey=${API_KEY}`,
     { cache: 'no-store' }
   );
   return removeDuplicateData(await newsData.json());
@@ -21,7 +21,7 @@ export const getNews = async (query) => {
   const toDateString = toDate.toISOString().split('T')[0];
 
   const newsData = await fetch(
-    `https://newsapi.org/v2/everything?q=${query}&from=${fromDateString}&to=${toDateString}&apiKey=${API_KEY_BACKUP}`,
+    `https://newsapi.org/v2/everything?q=${query}&from=${fromDateString}&to=${toDateString}&apiKey=${API_KEY}`,
     { cache: 'no-store' }
   );
 
@@ -29,7 +29,7 @@ export const getNews = async (query) => {
 };
 
 export const getNewsSearch = async (keyword) => {
-  const newsData = await fetch(`https://newsapi.org/v2/everything?apiKey=${API_KEY_BACKUP}&q=${keyword}`, {
+  const newsData = await fetch(`https://newsapi.org/v2/everything?apiKey=${API_KEY}&q=${keyword}`, {
     cache: 'no-store',
   });
   return removeDuplicateData(await newsData.json());
