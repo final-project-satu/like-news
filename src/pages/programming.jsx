@@ -3,6 +3,7 @@ import { getNews } from '../services/news.service';
 import CardSkeleton from '../components/organisms/CardSkeleton';
 import Card from '../components/organisms/Card';
 import ErrorPage from './404';
+import FailedPage from './Failed';
 
 const ProgrammingPage = () => {
   const [newsProgramming, setNewsProgramming] = React.useState([]);
@@ -25,7 +26,7 @@ const ProgrammingPage = () => {
   }, []);
 
   if (isError) {
-    return <ErrorPage/>;
+    return <FailedPage />;
   }
 
   return (

@@ -3,6 +3,7 @@ import { getNews } from '../services/news.service';
 import CardSkeleton from '../components/organisms/CardSkeleton';
 import Card from '../components/organisms/Card';
 import ErrorPage from './404';
+import FailedPage from './Failed';
 
 const AllNews = () => {
   const [News, setNews] = React.useState([]);
@@ -12,7 +13,7 @@ const AllNews = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getNews('programming'&&'covid');
+        const data = await getNews('programming' && 'covid');
         setNews(data);
         setIsLoading(false);
       } catch (error) {
@@ -25,11 +26,11 @@ const AllNews = () => {
   }, []);
 
   if (isError) {
-    return <ErrorPage/>;
+    return <FailedPage />;
   }
 
   return (
-    <div id='beranda'>
+    <div id="beranda">
       <h2 className="text-2xl font-bold text-center my-5">All News</h2>
       <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2">
         {isLoading ? (
@@ -40,12 +41,11 @@ const AllNews = () => {
           </>
         ) : (
           <>
-          {News.map((article, idx) => (
-            <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
-              <Card data={article} />
-            </div>
-          ))}
-          
+            {News.map((article, idx) => (
+              <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
+                <Card data={article} />
+              </div>
+            ))}
           </>
         )}
       </div>

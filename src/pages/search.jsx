@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Card from '../components/organisms/Card';
 import { getNewsSearch } from '../services/news.service';
 import CardSkeleton from '../components/organisms/CardSkeleton';
+import FailedPage from './Failed';
 
 const SearchPage = () => {
   const [newsSearch, setNewsSearch] = React.useState([]);
@@ -26,7 +27,7 @@ const SearchPage = () => {
   }, [keyword]);
 
   if (isError) {
-    return <div>Gagal Menampilkan data...</div>;
+    return <FailedPage />;
   }
 
   return (
