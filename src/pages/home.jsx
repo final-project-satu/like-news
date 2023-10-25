@@ -48,15 +48,23 @@ const Home = () => {
         </Link>
       </div>
       <div>
-      {NewsIndo.slice(0,1).map((article, idx) => {
-        if(article.title === 'After Hamas, Then What? Israel’s Undefined Endgame in Gaza'){
-            return(
-            <div className='bg-spotlight h-auto mb-5 grid grid-cols-2'>
-                <a href={article.url} className='text-4xl h-screen ml-5 pl-5 flex items-center bg-title-spotlight'>{article.title}</a>
-            </div>
-            )
-        }
-      })}
+      {isLoading ? (
+          <>
+            <CardSkeleton />
+          </>
+        ) : (
+          <>
+          {NewsIndo.slice(0,1).map((article, idx) => {
+            if(article.title === 'After Hamas, Then What? Israel’s Undefined Endgame in Gaza'){
+                return(
+                <div className='bg-spotlight h-auto mb-5 grid grid-cols-2'>
+                    <a href={article.url} className='text-4xl h-screen ml-5 pl-5 flex items-center bg-title-spotlight'>{article.title}</a>
+                </div>
+                )
+            }
+          })}
+          </>
+        )}
       </div>
       <h1 className='text-center text-5xl font-semibold mb-5'>Highlight</h1>
       <div className="w-full grid gap-5 lg:grid-cols-3 md:grid-cols-2">

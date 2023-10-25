@@ -2,8 +2,7 @@ import { Button, Row, Col, Container, Card } from 'react-bootstrap';
 import pict from '../../assets/img/logo.png';
 import { getNews } from '../../services/news.service';
 import { useEffect, useState } from 'react';
-import IMG from '../../assets/img/header-card.png';
-import LazyLoad from 'react-lazy-load';
+import CardSkeleton from './CardSkeleton';
 import { Link } from 'react-scroll';
 
 export default function Headers() {
@@ -53,8 +52,18 @@ export default function Headers() {
                   <img src={pict} />
                 </div>
                 <div className='text-5xl text-center mt-2 font-bold'>HOT NEWS</div>
-                {newsID.slice(4, 7).map((article, idx) => (
-                  <Card key={`${article?.title}-${idx}`} className="h-fit mt-2 bg-white">
+                {isLoading ? (
+                    <>
+                    <div className="h-64 mt-5 grid sm:grid-rows-3">
+                      <CardSkeleton />
+                      <CardSkeleton />
+                      <CardSkeleton />
+                    </div>
+                    </>
+                  ) : (
+                    <>
+                    {newsID.slice(4, 7).map((article, idx) => (
+                    <Card key={`${article?.title}-${idx}`} className="h-fit mt-2 bg-white">
                     <Card.Body>
                       <Row>
                         <Col>
@@ -67,8 +76,10 @@ export default function Headers() {
                         </Col>
                       </Row>
                     </Card.Body>
-                  </Card>
-                ))}
+                    </Card>
+                    ))}
+                    </>
+                  )}
               </Col>
             </Row>
       </Container>
