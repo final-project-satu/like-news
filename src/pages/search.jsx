@@ -4,8 +4,10 @@ import Card from '../components/organisms/Card';
 import { getNewsSearch } from '../services/news.service';
 import CardSkeleton from '../components/organisms/CardSkeleton';
 import FailedPage from './Failed';
+import { connect } from 'react-redux';
+import { Button } from 'react-bootstrap';
 
-const SearchPage = () => {
+const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
   const [newsSearch, setNewsSearch] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
@@ -22,7 +24,6 @@ const SearchPage = () => {
         setIsLoading(false);
       }
     };
-
     fetchData();
   }, [keyword]);
 
@@ -32,7 +33,7 @@ const SearchPage = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-center my-5">{keyword}</h2>
+      <h2 className="text-2xl font-bold text-center my-5">Results of {keyword}</h2>
 
       <div className="w-full grid gap-5 lg:grid-cols-3">
         {isLoading ? (
@@ -43,7 +44,7 @@ const SearchPage = () => {
           </>
         ) : (
           <>
-            {newsSearch.map((article, idx) => (
+            {newsSearch.slice(((currentPage*9)-9),(currentPage*9)).map((article, idx) => (
               <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
                 <Card data={article} />
               </div>
@@ -51,8 +52,26 @@ const SearchPage = () => {
           </>
         )}
       </div>
+      <div className='text-center mt-3'>
+        <Button variant='outline-dark' onClick={decrementPage}>Previous</Button>
+        <span>{currentPage}</span>
+        <Button variant='outline-dark' onClick={incrementPage}>Next</Button>
+      </div>
     </div>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    currentPage: state.currentPage,
+  };
+};
 
-export default SearchPage;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    incrementPage: () => dispatch({ type: 'INCREMENT_PAGE' }),
+    decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' }),
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

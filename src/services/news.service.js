@@ -1,7 +1,7 @@
 import { removeDuplicateData } from '../utils';
 
-const API_KEY = '0a746e2759444e379c4631c053f07a60';
-const API_KEY_BACKUP ='271e7a0971194c9cb5ed330cc3d92bc2';
+const API_KEY_BAKCUP = '0a746e2759444e379c4631c053f07a60';
+const API_KEY ='271e7a0971194c9cb5ed330cc3d92bc2';
 
 export const getNewsIndonesia = async () => {
   const newsData = await fetch(
@@ -29,7 +29,8 @@ export const getNews = async (query) => {
 };
 
 export const getNewsSearch = async (keyword) => {
-  const newsData = await fetch(`https://newsapi.org/v2/everything?apiKey=${API_KEY}&q=${keyword}`, {
+  const query = encodeURIComponent(keyword);
+  const newsData = await fetch(`https://newsapi.org/v2/everything?apiKey=${API_KEY}&q=${query}`, {
     cache: 'no-store',
   });
   return removeDuplicateData(await newsData.json());
