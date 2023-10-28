@@ -24,7 +24,7 @@ function Navbars() {
   return (
     <Navbar expand="lg" sticky="top" variant="light" className="nav">
       <Container fluid>
-        <Navbar.Brand href="#">
+        <Navbar.Brand>
           <Link to='/'>
             <img src={LOGO} alt="logo like news" className="w-48 h-10 object-cover " />
           </Link>
@@ -32,18 +32,10 @@ function Navbars() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0 text-lg " navbarScroll>
-            <Nav.Link href='#indonesia'>
-              <Link to="/indonesia">Indonesia</Link>
-            </Nav.Link>
-            <Nav.Link href='#programming'>
-              <Link to="/programming">Programming</Link>
-            </Nav.Link>
-            <Nav.Link href='#covid'>
-              <Link to="/covid">Covid-19</Link>
-            </Nav.Link>
-            <Nav.Link href='#saved'>
-              <Link to="/saved">Saved</Link>
-            </Nav.Link>
+              <Nav.Link href='#indonesia' as={Link} to="/indonesia">Indonesia</Nav.Link>
+              <Nav.Link href='#programming' as={Link} to="/programming">Programming</Nav.Link>
+              <Nav.Link href='#covid-19' as={Link} to="/covid">Covid-19</Nav.Link>
+              <Nav.Link href='saved' as={Link} to="/saved">Saved</Nav.Link>
           </Nav>
           <Form className="d-flex" onSubmit={handleSearchKeywords}>
             <Form.Control

@@ -46,7 +46,7 @@ const Card = ({ data }) => {
 
       <div className="flex my-2 flex-wrap gap-2 ">
         <Tag data={data?.source.name} />
-        <Tag data={data?.author} />
+        <Tag data={data?.author  || 'unknown'} />
         <Tag data={formatDateToLocale(data?.publishedAt)} />
       </div>
 

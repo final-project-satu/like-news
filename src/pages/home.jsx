@@ -59,8 +59,8 @@ const Home = () => {
           {NewsIndo.slice(0,1).map((article, idx) => {
           if(article.title === 'After Hamas, Then What? Israel’s Undefined Endgame in Gaza'){
             return(
-            <div className='bg-spotlight h-auto mb-5 grid grid-cols-2'>
-                <a href={article.url} className='text-4xl h-screen ml-5 pl-5 flex items-center bg-title-spotlight'>{article.title}</a>
+            <div key={`${article?.title}-${idx}`} className='bg-spotlight h-auto mb-5 grid grid-cols-2'>
+                <a  href={article.url} className='text-4xl h-screen ml-5 pl-5 flex items-center bg-title-spotlight'>{article.title}</a>
             </div>
             )
           }

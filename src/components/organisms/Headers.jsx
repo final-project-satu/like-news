@@ -36,7 +36,6 @@ export default function Headers() {
                   <Link
                     to="beranda"
                     activeClass="active"
-                    spy="true"
                     smooth="true"
                     offset={-70}
                     duration={500}
