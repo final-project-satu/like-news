@@ -6,14 +6,26 @@ import CardSkeleton from '../components/organisms/CardSkeleton';
 import FailedPage from './Failed';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
   const [newsSearch, setNewsSearch] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
   const { keyword } = useParams();
+  const location = useLocation();
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
+    window.scrollTo(0, 0);
+    const isPathSameAsPrevious = (previousPath, currentPath) => {
+      return previousPath === currentPath;
+    };
+    if (!isPathSameAsPrevious(location.pathname, location.state?.prevPathname)) {
+      dispatch({ type: 'RESET_PAGE' });
+    }
+    location.state = { prevPathname: location.pathname };
     const fetchData = async () => {
       try {
         const data = await getNewsSearch(keyword);
@@ -34,7 +46,6 @@ const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
   return (
     <div>
       <h2 className="text-2xl font-bold text-center my-5">Results of {keyword}</h2>
-
       <div className="w-full grid gap-5 lg:grid-cols-3">
         {isLoading ? (
           <>
@@ -68,8 +79,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    incrementPage: () => dispatch({ type: 'INCREMENT_PAGE' }),
-    decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' }),
+    incrementPage: () => dispatch({ type: 'INCREMENT_PAGE' },window.scrollTo(0, 0)),
+    decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' },window.scrollTo(0, 0)),
   };
 };
 

@@ -4,10 +4,10 @@ import Card from '../components/organisms/Card';
 
 const SavedPage = () => {
   const [savedArticles, setSavedArticles] = React.useState([]);
-
   const { isUpdate } = useContext(updateCtx);
 
   React.useEffect(() => {
+    window.scrollTo(0, 0);
     const savedArticlesData = JSON.parse(localStorage.getItem('savedArticles')) || [];
     setSavedArticles(savedArticlesData);
   }, [isUpdate]);

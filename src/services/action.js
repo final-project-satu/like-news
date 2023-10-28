@@ -1,21 +1,6 @@
-export const setSearchTerm = (term) => {
-    return {
-      type: 'SET_SEARCH_TERM',
-      payload: term,
-    };
+export const setPageByPath = (pathname) => {
+  return {
+    type: 'SET_PAGE_BY_PATH',
+    payload: getPageFromPathname(pathname),
   };
-  
-export const setArticles = (articles) => {
-    return {
-      type: 'SET_ARTICLES',
-      payload: articles,
-    };
-  };
-
-export const receiveSearchResults = (results) => {
-    return {
-      type: 'RECEIVE_SEARCH_RESULTS', 
-      payload: results, 
-    };
-  };
-  
+};
