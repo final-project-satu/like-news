@@ -33,7 +33,7 @@
 ## App Description : Like News - Membawa Berita Terbaik Setiap Hari
 
 <P align="center">
-  <img src="https://github.com/ramafeweb/pv/assets/128719842/559fc0d5-ee36-466a-bfc7-10bc1cba1eb9" alt="Logo" height="150">
+  <img src="https://github.com/ramafeweb/pv/assets/128719842/559fc0d5-ee36-466a-bfc7-10bc1cba1eb9" alt="Logo" height="200">
 </p>
 
 <b> Like News </b> merupakan sebuah aplikasi website berita terkemuka yang menghadirkan berita terbaru, informatif, dan terpercaya dari seluruh penjuru dunia. 
