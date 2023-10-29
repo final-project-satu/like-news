@@ -20,7 +20,7 @@ function App() {
     <>
       {isHomePage && <Headers />}
       <Navbars />
-      <main className="px-20 md:px-20 mb-10 ">
+      <main className="px-4 mb-10">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/all" element={<AllNews />} />
@@ -32,7 +32,7 @@ function App() {
           <Route path="/search/:keyword" element={<SearchPage />} />
         </Routes>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }

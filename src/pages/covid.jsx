@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+import { pagePropTypes } from '../context/pageProps';
 
 const CovidPage = ({currentPage, incrementPage, decrementPage}) => {
   const [newsProgramming, setNewsProgramming] = React.useState([]);
@@ -85,11 +85,7 @@ const mapDispatchToProps = (dispatch) => {
     decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' },window.scrollTo(0, 0)),
   };
 };
-CovidPage.propTypes = {
-  currentPage: PropTypes.number.isRequired,
-  incrementPage: PropTypes.func.isRequired,
-  decrementPage: PropTypes.func.isRequired,
-};
+CovidPage.propTypes = pagePropTypes
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(CovidPage);

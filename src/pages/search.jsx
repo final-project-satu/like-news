@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+import { pagePropTypes } from '../context/pageProps';
 
 const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
   const [newsSearch, setNewsSearch] = React.useState([]);
@@ -85,10 +85,6 @@ const mapDispatchToProps = (dispatch) => {
     decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' },window.scrollTo(0, 0)),
   };
 };
-SearchPage.propTypes = {
-  currentPage: PropTypes.number.isRequired,
-  incrementPage: PropTypes.func.isRequired,
-  decrementPage: PropTypes.func.isRequired,
-};
+SearchPage.propTypes = pagePropTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
