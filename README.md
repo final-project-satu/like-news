@@ -10,7 +10,7 @@
 </p>
 
 <pre align="center">
-  <a href="like-news.netlify.app">VISIT WEBSITE</a>
+  <a href="https://like-news.netlify.app/">VISIT WEBSITE</a>
 </pre>
 
 # Table of Content :
