@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Card from '../components/organisms/Card';
@@ -8,6 +9,7 @@ import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
   const [newsSearch, setNewsSearch] = React.useState([]);
@@ -37,7 +39,7 @@ const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
       }
     };
     fetchData();
-  }, [keyword]);
+  }, [keyword,dispatch,location]);
 
   if (isError) {
     return <FailedPage />;
@@ -64,9 +66,9 @@ const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
         )}
       </div>
       <div className='text-center mt-3'>
-        <Button variant='outline-dark' onClick={decrementPage}>Previous</Button>
-        <span>{currentPage}</span>
-        <Button variant='outline-dark' onClick={incrementPage}>Next</Button>
+        <Button variant='outline-dark' onClick={decrementPage}>-</Button>
+        <span className='mx-2'>{currentPage}</span>
+        <Button variant='outline-dark' onClick={incrementPage}>+</Button>
       </div>
     </div>
   );
@@ -83,6 +85,10 @@ const mapDispatchToProps = (dispatch) => {
     decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' },window.scrollTo(0, 0)),
   };
 };
-
+SearchPage.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  incrementPage: PropTypes.func.isRequired,
+  decrementPage: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

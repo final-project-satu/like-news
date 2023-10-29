@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import { getNews } from '../services/news.service';
 import CardSkeleton from '../components/organisms/CardSkeleton';
@@ -7,6 +8,7 @@ import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const AllNews = ({currentPage, incrementPage, decrementPage}) => {
   const [News, setNews] = React.useState([]);
@@ -36,7 +38,7 @@ const AllNews = ({currentPage, incrementPage, decrementPage}) => {
     };
 
     fetchData();
-  }, []);
+  }, [dispatch,location]);
 
   if (isError) {
     return <FailedPage />;
@@ -63,9 +65,9 @@ const AllNews = ({currentPage, incrementPage, decrementPage}) => {
         )}
       </div>
       <div className='text-center mt-3'>
-        <Button variant='outline-dark' onClick={decrementPage}>Previous</Button>
-        <span>{currentPage}</span>
-        <Button variant='outline-dark' onClick={incrementPage}>Next</Button>
+        <Button variant='outline-dark' onClick={decrementPage}>-</Button>
+        <span className='mx-2'>{currentPage}</span>
+        <Button variant='outline-dark' onClick={incrementPage}>+</Button>
       </div>
     </div>
   );
@@ -81,6 +83,11 @@ const mapDispatchToProps = (dispatch) => {
     incrementPage: () => dispatch({ type: 'INCREMENT_PAGE' },window.scrollTo(0, 0)),
     decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' },window.scrollTo(0, 0)),
   };
+};
+AllNews.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  incrementPage: PropTypes.func.isRequired,
+  decrementPage: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllNews);
