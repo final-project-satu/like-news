@@ -7,7 +7,7 @@ import UpdateContextProvider from './context/updateContext.jsx';
 import { Provider } from 'react-redux';
 import store from './services/store.js';
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <UpdateContextProvider>
       <BrowserRouter>
@@ -16,5 +16,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </Provider>
       </BrowserRouter>
     </UpdateContextProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

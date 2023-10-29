@@ -7,4 +7,4 @@ export const removeDuplicateData = (articles) => {
 export const formatDateToLocale = (date) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(date).toLocaleDateString('id', options);
-}
+};

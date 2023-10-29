@@ -10,8 +10,7 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { pagePropTypes } from '../context/pageProps';
 
-
-const IndonesiaPage = ({currentPage, incrementPage, decrementPage}) => {
+const IndonesiaPage = ({ currentPage, incrementPage, decrementPage }) => {
   const [newsID, setNewsID] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
@@ -39,7 +38,7 @@ const IndonesiaPage = ({currentPage, incrementPage, decrementPage}) => {
     };
 
     fetchData();
-  }, [dispatch,location]);
+  }, [dispatch, location]);
 
   if (isError) {
     return <FailedPage />;
@@ -57,7 +56,7 @@ const IndonesiaPage = ({currentPage, incrementPage, decrementPage}) => {
           </>
         ) : (
           <>
-            {newsID.slice(((currentPage*9)-9),(currentPage*9)).map((article, idx) => (
+            {newsID.slice(currentPage * 9 - 9, currentPage * 9).map((article, idx) => (
               <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
                 <Card data={article} />
               </div>
@@ -65,10 +64,14 @@ const IndonesiaPage = ({currentPage, incrementPage, decrementPage}) => {
           </>
         )}
       </div>
-      <div className='text-center mt-3'>
-        <Button variant='outline-dark' onClick={decrementPage}>-</Button>
-        <span className='mx-2'>{currentPage}</span>
-        <Button variant='outline-dark' onClick={incrementPage}>+</Button>
+      <div className="text-center mt-3">
+        <Button variant="outline-dark" onClick={decrementPage}>
+          -
+        </Button>
+        <span className="mx-2">{currentPage}</span>
+        <Button variant="outline-dark" onClick={incrementPage}>
+          +
+        </Button>
       </div>
     </div>
   );
@@ -81,8 +84,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    incrementPage: () => dispatch({ type: 'INCREMENT_PAGE' },window.scrollTo(0, 0)),
-    decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' },window.scrollTo(0, 0)),
+    incrementPage: () => dispatch({ type: 'INCREMENT_PAGE' }, window.scrollTo(0, 0)),
+    decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' }, window.scrollTo(0, 0)),
   };
 };
 IndonesiaPage.propTypes = pagePropTypes;

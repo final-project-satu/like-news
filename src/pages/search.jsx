@@ -11,7 +11,7 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { pagePropTypes } from '../context/pageProps';
 
-const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
+const SearchPage = ({ currentPage, incrementPage, decrementPage }) => {
   const [newsSearch, setNewsSearch] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isError, setIsError] = React.useState(false);
@@ -39,7 +39,7 @@ const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
       }
     };
     fetchData();
-  }, [keyword,dispatch,location]);
+  }, [keyword, dispatch, location]);
 
   if (isError) {
     return <FailedPage />;
@@ -57,7 +57,7 @@ const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
           </>
         ) : (
           <>
-            {newsSearch.slice(((currentPage*9)-9),(currentPage*9)).map((article, idx) => (
+            {newsSearch.slice(currentPage * 9 - 9, currentPage * 9).map((article, idx) => (
               <div key={`${article?.title}-${idx}`} className="border-[1px] border-slate-600 p-3">
                 <Card data={article} />
               </div>
@@ -65,10 +65,14 @@ const SearchPage = ({currentPage, incrementPage, decrementPage}) => {
           </>
         )}
       </div>
-      <div className='text-center mt-3'>
-        <Button variant='outline-dark' onClick={decrementPage}>-</Button>
-        <span className='mx-2'>{currentPage}</span>
-        <Button variant='outline-dark' onClick={incrementPage}>+</Button>
+      <div className="text-center mt-3">
+        <Button variant="outline-dark" onClick={decrementPage}>
+          -
+        </Button>
+        <span className="mx-2">{currentPage}</span>
+        <Button variant="outline-dark" onClick={incrementPage}>
+          +
+        </Button>
       </div>
     </div>
   );
@@ -81,8 +85,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    incrementPage: () => dispatch({ type: 'INCREMENT_PAGE' },window.scrollTo(0, 0)),
-    decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' },window.scrollTo(0, 0)),
+    incrementPage: () => dispatch({ type: 'INCREMENT_PAGE' }, window.scrollTo(0, 0)),
+    decrementPage: () => dispatch({ type: 'DECREMENT_PAGE' }, window.scrollTo(0, 0)),
   };
 };
 SearchPage.propTypes = pagePropTypes;
