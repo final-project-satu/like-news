@@ -1,8 +1,9 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Pastikan Anda mengimpor FontAwesomeIcon
-import { faFacebook, faTwitter, faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons"; // Anda dapat menambahkan ikon media sosial yang Anda butuhkan
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faTwitter, faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { Icons } from "./Menus";
 
-const SocialIcons = ({ Icons }) => {
+const SocialIcons = () => {
   return (
     <div className="text-teal-500">
       {Icons.map((icon) => (
@@ -35,5 +36,4 @@ function renderIcon(iconName) {
       return null;
   }
 }
-
 export default SocialIcons;

@@ -24,7 +24,7 @@ function Navbars() {
   return (
     <Navbar expand="lg" sticky="top" variant="light" className="nav">
       <Container fluid>
-        <Navbar.Brand>
+        <Navbar.Brand href='#home'>
           <Link to='/'>
             <img src={LOGO} alt="logo like news" className="w-48 h-10 object-cover " />
           </Link>
